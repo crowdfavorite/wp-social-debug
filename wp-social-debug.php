@@ -21,7 +21,7 @@ function wp_social_debug_init() {
 			$universal_accounts = 'NO UNIVERSAL ACCOUNTS';
 		}
 		else {
-			$universal_accounts = serialize($universal_accounts);
+			$universal_accounts = htmlentities(serialize($universal_accounts));
 		}
 		echo 'Universal Accounts:<br />'.$universal_accounts.'<br /><br />';
 
@@ -30,7 +30,7 @@ function wp_social_debug_init() {
 			$personal_accounts = 'NO PERSONAL ACCOUNTS';
 		}
 		else {
-			$personal_accounts = serialize($personal_accounts);
+			$personal_accounts = htmlentities(serialize($personal_accounts));
 		}
 
 		echo 'Personal Accounts:<br />'.$personal_accounts;
