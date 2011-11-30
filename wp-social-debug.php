@@ -7,12 +7,12 @@ Author: Crowd Favorite
 Author URI: http://crowdfavorite.com/
 */
 function wp_social_debug_notice() {
-	echo '<div class="error"><p>To help debug Social, please send the output of this <a href="'.esc_url(admin_url('?wp_social_debug=true')).'">link</a> to <a href="mailto:support@crowdfavorite.com">support@crowdfavorite.com</a></p></div>';
+	echo '<div class="error"><p>To help debug Social, please send the output of this <a href="'.esc_url(admin_url('?wp_social_debug=true')).'" target="_blank">link</a> to <a href="mailto:support@crowdfavorite.com">support@crowdfavorite.com</a></p></div>';
 }
 add_action('admin_notices', 'wp_social_debug_notice');
 
 function wp_social_debug_init() {
-	if (isset($_GET['wp_social_debug'])) {
+	if (isset($_GET['wp_social_debug']) and current_user_can('manage_options')) {
 		echo 'PHP Version: '.phpversion().'<br />';
 		echo 'Social Version: '.get_option('social_installed_version', 'NOT INSTALLED').'<br /><br />';
 
