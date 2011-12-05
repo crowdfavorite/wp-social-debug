@@ -7,7 +7,10 @@ Author: Crowd Favorite
 Author URI: http://crowdfavorite.com/
 */
 function wp_social_debug_notice() {
-	echo '<div class="error"><p>To help debug Social, please send the output of this <a href="'.esc_url(admin_url('?wp_social_debug=true')).'" target="_blank">link</a> to <a href="mailto:support@crowdfavorite.com">support@crowdfavorite.com</a></p></div>';
+	echo '<div class="error">'
+	   . '<p>To help debug Social, please send the output of this <a href="'.esc_url(admin_url('?wp_social_debug=true')).'" target="_blank">link</a> to <a href="mailto:support@crowdfavorite.com">support@crowdfavorite.com</a></p>'
+	   . '<form method="GET" action="'.esc_url(admin_url()).'"><input type="hidden" name="wp_social_debug" value="true" /><p>To export a post, and it\'s comments, enter the post ID: <input type="text" name="post_id" size="3" /><input type="submit" class="button" value="Export" /></p></form>'
+	   . '</div>';
 }
 add_action('admin_notices', 'wp_social_debug_notice');
 
